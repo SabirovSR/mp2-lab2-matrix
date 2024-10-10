@@ -134,6 +134,10 @@ TEST(TMatrix, matrices_with_different_size_are_not_equal)
 TEST(TMatrix, can_add_matrices_with_equal_size)
 {
 	TMatrix<int> m1(5), m2(5), m3(5);
+	m1.InitM(0);
+	m2.InitM(0);
+	m3.InitM(0);
+
 	m1[0][0] = 5;
 	m2[0][0] = 5;
 	m3[0][0] = 10;
@@ -144,6 +148,9 @@ TEST(TMatrix, can_add_matrices_with_equal_size)
 TEST(TMatrix, cant_add_matrices_with_not_equal_size)
 {
 	TMatrix<int> m1(5), m2(4);
+	m1.InitM(0);
+	m2.InitM(0);
+
 	m1[0][0] = 5;
 	m2[0][0] = 5;
 
@@ -153,6 +160,9 @@ TEST(TMatrix, cant_add_matrices_with_not_equal_size)
 TEST(TMatrix, can_subtract_matrices_with_equal_size)
 {
 	TMatrix<int> m1(5), m2(5);
+	m1.InitM(0);
+	m2.InitM(0);
+
 	m1[0][0] = 10;
 	m2[0][0] = 5;
 

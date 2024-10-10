@@ -146,8 +146,9 @@ TEST(TVector, vectors_with_different_size_are_not_equal)
 TEST(TVector, can_add_scalar_to_vector)
 {
     TVector<int> v1(4), v2(4);
+    v1.InitInt(0);
     v2 = v1 + 4;
-    for (int i = v1.GetStartIndex(); i < (v1.GetSize()) + v1.GetStartIndex(); i++)
+    for (int i = v1.GetStartIndex(); i < v1.GetSize() + v1.GetStartIndex(); i++)
         v1[i] += 4;
 
     EXPECT_EQ(v2, v1);
@@ -156,8 +157,9 @@ TEST(TVector, can_add_scalar_to_vector)
 TEST(TVector, can_subtract_scalar_from_vector)
 {
     TVector<int> v1(4), v2(4);
+    v1.InitInt(0);
     v2 = v1 - 4;
-    for (int i = v1.GetStartIndex(); i < (v1.GetSize()) + v1.GetStartIndex(); i++)
+    for (int i = v1.GetStartIndex(); i < v1.GetSize() + v1.GetStartIndex(); i++)
         v1[i] -= 4;
 
     EXPECT_EQ(v2, v1);
@@ -166,9 +168,10 @@ TEST(TVector, can_subtract_scalar_from_vector)
 TEST(TVector, can_multiply_scalar_by_vector)
 {
     TVector<int> v1(4), v2(4);
+    v1.InitInt(0);
     v1 = v1 + 4;
     v2 = v1 * 4;
-    for (int i = v1.GetStartIndex(); i < (v1.GetSize()) + v1.GetStartIndex(); i++)
+    for (int i = v1.GetStartIndex(); i < v1.GetSize() + v1.GetStartIndex(); i++)
         v1[i] *= 4;
 
     EXPECT_EQ(v2, v1);
@@ -177,6 +180,10 @@ TEST(TVector, can_multiply_scalar_by_vector)
 TEST(TVector, can_add_vectors_with_equal_size)
 {
     TVector<int> v1(4), v2(4), v3(4);
+    v1.InitInt(0);
+    v2.InitInt(0);
+    v3.InitInt(0);
+
     v1 = v1 + 1;
     v2 = v2 + 2;
     v3 = v3 + 3;
@@ -194,7 +201,11 @@ TEST(TVector, cant_add_vectors_with_not_equal_size)
 TEST(TVector, can_subtract_vectors_with_equal_size)
 {
     TVector<int> v1(4), v2(4), v3(4);
-    v1 = v1 + 1;
+    v1.InitInt(0);
+    v2.InitInt(0);
+    v3.InitInt(0);
+
+	v1 = v1 + 1;
     v2 = v2 + 2;
     v3 = v3 + 3;
 
@@ -211,6 +222,8 @@ TEST(TVector, cant_subtract_vectors_with_not_equal_size)
 TEST(TVector, can_multiply_vectors_with_equal_size)
 {
     TVector<int> v1(4);
+    v1.InitInt(0);
+    
     v1 = v1 + 1;
     TVector<int> v2(v1);
 
